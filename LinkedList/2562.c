@@ -34,7 +34,10 @@ void search(){
 			max=curr->data;
 			order=i;
 		}
+		struct Linked_list *garbege;
+		garbege=curr;
 		curr=curr->next;
+		free(garbege);
 	       i++;	
 	}
 	printf("%d\n%d\n",max,order);
