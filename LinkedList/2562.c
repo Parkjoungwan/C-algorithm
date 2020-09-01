@@ -5,8 +5,8 @@ struct Linked_list{
 	struct Linked_list *next;
 	int data;	
 };
-int order;
-int max;
+int order=1;
+int max=0;
 struct Linked_list *head;
 struct Linked_list *last;
 void insert(int i){
@@ -37,7 +37,7 @@ void search(){
 		curr=curr->next;
 	       i++;	
 	}
-	printf("%d\n%d",max,order);
+	printf("%d\n%d\n",max,order);
 }
 
 void nojam2562(){
