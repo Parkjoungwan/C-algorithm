@@ -33,9 +33,12 @@ void insert(int i){
 
 void findavg(){
 	struct Node * curr=head;
+	struct Node * garbege;
 	while(curr != NULL){
 		avg+=curr->data;
+		garbege=curr;
 		curr=curr->next;
+		free(garbege);
 	}
 	avg=avg/max*100/N;
 	printf("%f\n",avg);
