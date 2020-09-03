@@ -3,3 +3,4 @@
 
 자료구조
 1. [LinkedList](./LinkedList)
+2. [Stack](./Stack)
