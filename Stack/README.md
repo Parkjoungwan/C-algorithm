@@ -2,4 +2,5 @@
 
 index
 =======
-[10828: 스택](https://www.acmicpc.net/problem/10828)
+[10828: 스택](https://www.acmicpc.net/problem/10828)  
+[10773: 제로](https://www.acmicpc.net/problem/10773)  
