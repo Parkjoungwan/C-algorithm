@@ -38,15 +38,15 @@ void order(char glho){
 
 void nojam4949(){
 	for(;;){
-		int end = 0;
+		int start=1;
 		char glho;
 		while(1){
 			scanf("%1c",&glho);
+			if(start==1&&glho=='.')return;
 			order(glho);
-			if(glho=='.') break;
-			if(glho!='\n') end++;
+			start++;
+			if(glho=='\n') break;
 		}
-		if(end==0)return;
 		s_clear();
 		if(fail){
 			printf("NO\n");
