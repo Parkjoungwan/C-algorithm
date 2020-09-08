@@ -146,16 +146,12 @@ void s_clear(){
 	tracker=head;
 	head=NULL;
 	last=NULL;
-	if(first){
-		return;
-	}else{
-		while(tracker->next!=NULL){
-			struct Node * garbege;
-			garbege=tracker;
-			tracker=tracker->next;
-			free(garbege);
-		}
-		fail=true;
+	while(tracker->next!=NULL){
+		struct Node * garbege;
+		garbege=tracker;
+		tracker=tracker->next;
+		free(garbege);
 	}
+	fail=true;
 	first=true;
 }
