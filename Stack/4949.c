@@ -54,7 +54,6 @@ void nojam4949(){
 		}else{
 			printf("YES\n");
 		}
-		printf("%d\n",end);
 	}
 }
 
