@@ -49,10 +49,10 @@ void nojam4949(){
 		}
 		s_clear();
 		if(fail){
-			printf("NO\n");
+			printf("no\n");
 			fail=false;
 		}else{
-			printf("YES\n");
+			printf("yes\n");
 		}
 	}
 }
