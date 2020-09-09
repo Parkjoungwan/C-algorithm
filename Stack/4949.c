@@ -7,8 +7,8 @@ struct Node {
 	char data;
 };
 
-struct Node * head;
-struct Node * last;
+struct Node * head=NULL;
+struct Node * last=NULL;
 void s_popcheck();
 void s_popcheck2();
 void s_push();
@@ -72,6 +72,7 @@ void s_push(){
 		last=node;
 		first=false;
 	}else{
+		last->next=node;
 		node->pre = last;
 		node->data = '(';
 		node->next = NULL;
@@ -89,6 +90,7 @@ void s_push2(){
 		last=node;
 		first=false;
 	}else{
+		last->next=node;
 		node->pre = last;
 		node->data = '[';
 		node->next = NULL;
