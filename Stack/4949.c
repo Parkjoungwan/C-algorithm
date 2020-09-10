@@ -49,21 +49,23 @@ void nojam4949(){
 		}
 		s_clear();
 		if(fail){
-			printf("NO\n");
+			printf("no\n");
 			fail=false;
 		}else{
-			printf("YES\n");
+			printf("yes\n");
 		}
 	}
+	return;
 }
 
 int main(){
 	nojam4949();
+	return 0;
 }
 
 void s_push(){
 	struct Node * node;
-	node = malloc(sizeof(struct Node));
+	node = (struct Node *)malloc(sizeof(struct Node));
 	if(first){
 		node->pre = NULL;
 		node->next = NULL;
@@ -78,10 +80,11 @@ void s_push(){
 		node->next = NULL;
 		last = node;
 	}
+	return;
 }
 void s_push2(){
 	struct Node * node;
-	node = malloc(sizeof(struct Node));
+	node = (struct Node *)malloc(sizeof(struct Node));
 	if(first){
 		node->pre = NULL;
 		node->next = NULL;
@@ -119,6 +122,7 @@ void s_popcheck(){
 		free(garbege);
 	}
 }
+
 void s_popcheck2(){
 	if(first){
 		fail=true;
