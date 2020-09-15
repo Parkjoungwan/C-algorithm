@@ -37,6 +37,7 @@ void nojam1874(){
 			printf("NO");
 			return;
 		}
+		//didn't fixed algorithm for find failure
 	}
 	printf("YES");
 }
