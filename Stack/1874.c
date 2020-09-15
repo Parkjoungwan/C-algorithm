@@ -6,9 +6,10 @@ typedef struct Node{
 }Node;
 int N;
 Node *last=NULL;
-
+char result[200001];
 void s_push(int N);
 void s_pop();
+int s_empty();
 
 void nojam1874(){
 	scanf("%d",&N);
@@ -19,27 +20,31 @@ void nojam1874(){
 	}
 	int target=1;
 	int pushnum=1;
-	for(int i=1;i<=2*N;i++){
+	int i;
+	for(i=1;i<=2*N;i++){
 		if(last==NULL){
 			s_push(pushnum);
-			printf("pushed: %d\n",pushnum);
 			pushnum++;
+			result[i]='+';
 		}else if(num[target]==last->data){
 			s_pop();
 			target++;
-			printf("poped: %d",num[target]);
+			result[i]='-';
 		}else{
+			if(pushnum>N)break;
 			s_push(pushnum);
-			printf("pushed: %d\n",pushnum);
 			pushnum++;
+			result[i]='+';
 		}
-		if(num[target]>last->data){
-			printf("NO");
-			return;
-		}
-		//didn't fixed algorithm for find failure
+		//need fix algorithm for find failure
 	}
-	printf("YES");
+	if(s_empty()){
+		for(int j=1;j<i;j++){
+			printf("%c\n",result[j]);
+		}
+	}else{
+		printf("NO");
+	}
 }
 
 int main(){
@@ -71,4 +76,8 @@ void s_pop(){
 		last=last->pre;
 		free(trash);
 	}
+}
+int s_empty(){
+	if(last==NULL) return 1;
+	else return 0;
 }
