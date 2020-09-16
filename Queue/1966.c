@@ -55,7 +55,7 @@ int main(){
 
 void q_push(int num,int order){
 	Node *node;
-	node =(Node*) malloc(sizeof(Node));
+	node = (Node*)malloc(sizeof(Node));
 	if(head==NULL){
 		head=node;
 		last=node;
