@@ -28,6 +28,7 @@ void printer(int page, int order){
 			int importance;
 			int headorder = head->order;
 			importance=q_pop();
+			if(importance==-1) break;
 			q_push(importance,headorder);
 		}else{
 			numprint=head->order;
@@ -54,7 +55,7 @@ int main(){
 
 void q_push(int num,int order){
 	Node *node;
-	node = malloc(sizeof(Node));
+	node =(Node*) malloc(sizeof(Node));
 	if(head==NULL){
 		head=node;
 		last=node;
@@ -95,7 +96,7 @@ int q_check(){
 	}
 	Node *tracker = head;
 	int temp = tracker->data;
-	while(tracker->next!=NULL){
+	while(tracker!=NULL){
 		if(temp<tracker->data) return 1;
 		tracker= tracker->next;
 	}
