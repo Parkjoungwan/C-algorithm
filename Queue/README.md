@@ -2,4 +2,5 @@
 
 index
 =======
-[18258 큐2](https://www.acmicpc.net/problem/18258)
+[18258 큐2](https://www.acmicpc.net/problem/18258)  
+[2164 카드2](https://www.acmicpc.net/problem/2164)  
