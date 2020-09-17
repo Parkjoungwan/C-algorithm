@@ -5,3 +5,4 @@
 1. [LinkedList](./LinkedList)
 2. [Stack](./Stack)
 3. [Queue](./Queue)  
+4. [Deque](./Deque)  
