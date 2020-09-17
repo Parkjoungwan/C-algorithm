@@ -8,7 +8,8 @@ typedef struct Node{
 
 int N;
 int size;
-Node * head, *last;
+Node * head=NULL;
+Node * last=NULL;
 void push_front(int num);
 void push_back(int num);
 void pop_front();
@@ -114,7 +115,7 @@ void pop_front(){
 	}
 	size--;
 	Node * garbege;
-	garbege=head;
+	garbege = head;
 	if(garbege->next==NULL){
 		head=NULL;
 		last=NULL;
