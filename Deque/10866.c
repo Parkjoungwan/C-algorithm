@@ -17,7 +17,7 @@ void pop_back();
 
 void order(){
 	char *command;
-	command = malloc(sizeof(char)*10);
+	command = malloc(sizeof(char)*12);
 	scanf("%s",command);
 	if(!strcmp(command,"push_front")){
 		int num;
@@ -53,7 +53,7 @@ void order(){
 		}
 	}
 	if(!strcmp(command,"back")){
-		if(head==NULL){
+		if(last==NULL){
 			printf("-1\n");
 		}else{
 			printf("%d\n",last->data);
