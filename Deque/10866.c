@@ -123,12 +123,13 @@ void pop_front(){
 		last=NULL;
 	}else{
 		head=garbege->next;
+		head->pre=NULL;
 	}
 	printf("%d\n",garbege->data);
 	free(garbege);
 }
 void pop_back(){
-	if(head==NULL){
+	if(last==NULL){
 		printf("-1\n");
 		return;
 	}
@@ -140,6 +141,7 @@ void pop_back(){
 		last=NULL;
 	}else{
 		last=garbege->pre;
+		last->next=NULL;
 	}
 	printf("%d\n",garbege->data);
 	free(garbege);
