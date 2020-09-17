@@ -59,6 +59,8 @@ void order(){
 			printf("%d\n",last->data);
 		}
 	}
+	free(command);
+	return;
 }
 
 void nojam10866(){
