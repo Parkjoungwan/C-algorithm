@@ -7,7 +7,7 @@ typedef struct Node{
 }Node;
 
 int N;
-int size;
+int size=0;
 Node * head=NULL;
 Node * last=NULL;
 void push_front(int num);
