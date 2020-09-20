@@ -32,7 +32,10 @@ void nojam5430(){
 		NN=0;
 		while(1){
 			scanf(" %1c",&input[NN]);
-			if(T==0)break;
+			if(T==0){
+				scanf(" %1c",&input[NN+1]);
+				break;
+			}
 			if(input[NN]=='['){
 				int number;
 				scanf("%d", &number);
