@@ -25,18 +25,36 @@ void nojam5430(){
 		order=malloc(sizeof(char)*100000);
 		scanf(" %s",order);
 		scanf("%d",&T);
-		for(int j=0;j<T;){
-			//need to fix how to input the number
-			char *input;
-			input=malloc(sizeof(char)*200000);
-			scanf("%s",input);
-			for(int k=0;input[k]!='\0';k++){
-				if(input[k]=='[')continue;
-				if(input[k]==']')continue;
-				if(input[k]==',')continue;
-				push_back(input[k]-'0');
+		int NN;
+		//need to fix how to input the number
+		char *input;
+		input=malloc(sizeof(char)*200000);
+		NN=0;
+		while(1){
+			scanf(" %1c",&input[NN]);
+			if(input[NN]=='['){
+				int number;
+				scanf("%d", &number);
+				if(number==93)break;
+				input[NN+1]=number;
+				NN+=2;
 			}
-			j++;
+			if(input[NN]==','){
+				int number;
+				scanf("%d", &number);
+				input[NN+1]=number;
+				NN+=2;
+			}
+			if(input[NN]==']'){
+				break;
+			}
+		}
+		input[NN]='\0';
+		for(int k=0;input[k]!='\0';k++){
+			if(input[k]=='[')continue;
+			if(input[k]==']')continue;
+			if(input[k]==',')continue;
+			push_back(input[k]);
 		}
 		int k=0;
 		while(order[k]!='\0'){
@@ -147,14 +165,14 @@ void deq_show(){
 			if(last->pre==NULL){
 				printf("%d",last->data);
 			}else{
-				printf("%d, ",last->data);
+				printf("%d,",last->data);
 			}
 			pop_back();
 		}else{
 			if(head->next==NULL){
 				printf("%d",head->data);
 			}else{
-				printf("%d, ",head->data);
+				printf("%d,",head->data);
 			}
 			pop_front();
 		}
