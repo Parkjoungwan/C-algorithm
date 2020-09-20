@@ -31,8 +31,8 @@ void nojam5430(){
 		input=malloc(sizeof(char)*200003);
 		NN=0;
 		while(1){
-			if(T==0)break;
 			scanf(" %1c",&input[NN]);
+			if(T==0)break;
 			if(input[NN]=='['){
 				int number;
 				scanf("%d", &number);
