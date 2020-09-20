@@ -22,13 +22,13 @@ void nojam5430(){
 	scanf("%d",&N);
 	for(int i=0;i<N;i++){
 		int T;
-		order=malloc(sizeof(char)*100000);
+		order=malloc(sizeof(char)*100001);
 		scanf(" %s",order);
 		scanf("%d",&T);
 		int NN;
 		//need to fix how to input the number
 		char *input;
-		input=malloc(sizeof(char)*200000);
+		input=malloc(sizeof(char)*200003);
 		NN=0;
 		while(1){
 			if(T==0)break;
