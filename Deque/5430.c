@@ -31,11 +31,11 @@ void nojam5430(){
 		input=malloc(sizeof(char)*200000);
 		NN=0;
 		while(1){
+			if(T==0)break;
 			scanf(" %1c",&input[NN]);
 			if(input[NN]=='['){
 				int number;
 				scanf("%d", &number);
-				if(number==93)break;
 				input[NN+1]=number;
 				NN+=2;
 			}
