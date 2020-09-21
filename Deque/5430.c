@@ -16,7 +16,6 @@ void deq_clear();
 char *order;
 int Reverse=0;
 int fail=0;
-int size=0;
 
 void nojam5430(){
 	scanf("%d",&N);
@@ -25,15 +24,14 @@ void nojam5430(){
 		order=malloc(sizeof(char)*100001);
 		scanf(" %s",order);
 		scanf("%d",&T);
-		int NN;
-		//need to fix how to input the number
+		int NN=0;
 		char *input;
-		input=malloc(sizeof(char)*200003);
-		NN=0;
+		input=malloc(sizeof(char)*400011);
 		while(1){
 			scanf(" %1c",&input[NN]);
 			if(T==0){
 				scanf(" %1c",&input[NN+1]);
+				NN+=2;
 				break;
 			}
 			if(input[NN]=='['){
@@ -49,6 +47,7 @@ void nojam5430(){
 				NN+=2;
 			}
 			if(input[NN]==']'){
+				NN++;
 				break;
 			}
 		}
@@ -59,17 +58,17 @@ void nojam5430(){
 			if(input[k]==',')continue;
 			push_back(input[k]);
 		}
-		int k=0;
-		while(order[k]!='\0'){
-			if(order[k]=='R'){
+		int k2=0;
+		while(order[k2]!='\0'){
+			if(order[k2]=='R'){
 				if(Reverse) Reverse=0;
 				else Reverse=1;
 			}
-			if(order[k]=='D'){
+			if(order[k2]=='D'){
 				if(Reverse) pop_back();
 				else pop_front();
 			}
-			k++;
+			k2++;
 		}
 		if(fail){
 			printf("error\n");
@@ -83,6 +82,7 @@ void nojam5430(){
 		fail=0;
 		Reverse=0;
 		free(order);
+		free(input);
 	}
 }
 
@@ -91,27 +91,7 @@ int main(){
 	nojam5430();
 }
 
-
-void push_front(int num){
-	size++;
-	Node * node;
-	node = malloc(sizeof(Node));
-	if(head==NULL){
-		head = node;
-		node->data = num;
-		node->pre = NULL;
-		node->next = NULL;
-		last = node;
-	}else{
-		node->data = num;
-		node->next = head;
-		node->pre = NULL;
-		head->pre = node;
-		head = node;
-	}
-}
 void push_back(int num){
-	size++;
 	Node * node;
 	node = malloc(sizeof(Node));
 	if(head==NULL){
@@ -133,7 +113,6 @@ void pop_front(){
 		fail=1;
 		return;
 	}
-	size--;
 	Node * garbege;
 	garbege = head;
 	if(garbege->next==NULL){
@@ -150,7 +129,6 @@ void pop_back(){
 		fail=1;
 		return;
 	}
-	size--;
 	Node * garbege;
 	garbege=last;
 	if(garbege->pre==NULL){
