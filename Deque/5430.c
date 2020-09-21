@@ -31,7 +31,6 @@ void nojam5430(){
 			scanf(" %1c",&input[NN]);
 			if(T==0){
 				scanf(" %1c",&input[NN+1]);
-				NN+=2;
 				break;
 			}
 			if(input[NN]=='['){
@@ -47,7 +46,6 @@ void nojam5430(){
 				NN+=2;
 			}
 			if(input[NN]==']'){
-				NN++;
 				break;
 			}
 		}
