@@ -26,7 +26,7 @@ void nojam5430(){
 		scanf("%d",&T);
 		int NN=0;
 		char *input;
-		input=malloc(sizeof(char)*400011);
+		input=malloc(sizeof(char)*1400011);
 		while(1){
 			scanf(" %1c",&input[NN]);
 			if(T==0){
