@@ -24,37 +24,26 @@ void nojam5430(){
 		order=malloc(sizeof(char)*100001);
 		scanf(" %s",order);
 		scanf("%d",&T);
-		int NN=0;
-		char *input;
-		input=malloc(sizeof(char)*1400011);
+		char input;
 		while(1){
-			scanf(" %1c",&input[NN]);
+			scanf(" %1c",&input);
 			if(T==0){
-				scanf(" %1c",&input[NN+1]);
+				scanf(" %1c",&input);
 				break;
 			}
-			if(input[NN]=='['){
+			if(input=='['){
 				int number;
 				scanf("%d", &number);
-				input[NN+1]=number;
-				NN+=2;
+				push_back(number);
 			}
-			if(input[NN]==','){
+			if(input==','){
 				int number;
 				scanf("%d", &number);
-				input[NN+1]=number;
-				NN+=2;
+				push_back(number);
 			}
-			if(input[NN]==']'){
+			if(input==']'){
 				break;
 			}
-		}
-		input[NN]='\0';
-		for(int k=0;input[k]!='\0';k++){
-			if(input[k]=='[')continue;
-			if(input[k]==']')continue;
-			if(input[k]==',')continue;
-			push_back(input[k]);
 		}
 		int k2=0;
 		while(order[k2]!='\0'){
@@ -80,7 +69,6 @@ void nojam5430(){
 		fail=0;
 		Reverse=0;
 		free(order);
-		free(input);
 	}
 }
 
