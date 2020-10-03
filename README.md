@@ -6,4 +6,4 @@
 2. [Stack](./Stack)
 3. [Queue](./Queue)  
 4. [Deque](./Deque) 
-5. [tree](./tree)   
+5. [Tree](./Tree)   
