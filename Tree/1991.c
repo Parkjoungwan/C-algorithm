@@ -9,20 +9,23 @@ typedef struct Node{
 Node *root;
 int N;
 void t_push(Node* mid, char left, char right);
-Node* t_find(char mid);
+Node* t_find(Node *tracker,char mid);
 void t_pre(Node *tracker);
 void t_in(Node *tracker);
 void t_ppost(Node *tracker);
-Node* t_post(Node *node, char mid);
-char mid, left, right;
 Node *midNode;
 
 void nojam1991(){
-	scanf("%d", &N);
+	scanf("%d", &N);	
+	char mid, left, right;
 	for(int i=0;i<N;i++){
 		scanf("%c",&mid);
-		midNode=t_find(mid);
-		scanf("%c %c",&left,&right);
+		if(mid=='\n'||mid==' ') scanf("%c",&mid);
+		midNode=t_find(root,mid);
+		scanf("%c",&left);
+		if(left==' ') scanf("%c",&left);
+		scanf("%c",&right);
+		if(right==' ') scanf("%c",&right);
 		t_push(midNode, left, right);
 	}
 	t_pre(root);
@@ -36,19 +39,27 @@ int main(){
 
 void t_push(Node* mid, char left, char right){
 	Node *lnode, *rnode;
-	lnode = malloc(sizeof(Node));
-	rnode = malloc(sizeof(Node));
-	lnode->data = left;
-	lnode->Lnode = NULL;
-	lnode->Rnode = NULL;
-	rnode->data = right;
-	rnode->Lnode = NULL;
-	rnode->Rnode = NULL;
-	mid->Lnode = lnode;
-	mid->Rnode = rnode;
+	if(left!='.'){
+		lnode = malloc(sizeof(Node));
+		lnode->data = left;
+		lnode->Lnode = NULL;
+		lnode->Rnode = NULL;
+		mid->Lnode = lnode;
+	}else{
+		mid->Lnode = NULL;
+	}
+	if(right!='.'){
+		rnode = malloc(sizeof(Node));
+		rnode->data = right;
+		rnode->Lnode = NULL;
+		rnode->Rnode = NULL;
+		mid->Rnode = rnode;
+	}else{
+		mid->Rnode = NULL;
+	}
 }
 
-Node* t_find(char mid){
+Node* t_find(Node* tracker,char mid){
 	if(root==NULL){
 		Node *node;
 		node = malloc(sizeof(Node));
@@ -57,21 +68,16 @@ Node* t_find(char mid){
 		node-> Rnode = NULL;
 		root=node;
 		return root;
-	}
-	Node *tracker;
-	tracker=root;
-	tracker=t_post(tracker, mid);
-	return tracker;
-}
-
-Node* t_post(Node *node, char mid){
-	if(node!=NULL){
-		t_post(node->Lnode, mid);
-		t_post(node->Rnode, mid);
-		if(node->data==mid){
-			return node;
+	}else{
+		if(tracker->data==mid){
+			return tracker;
+		}else{
+			Node *tmp = t_find(tracker->Lnode,mid);
+			if(tmp==NULL){
+				return tmp;
+			}
+			return t_find(tracker->Rnode,mid);
 		}
-		
 	}
 	return NULL;
 }
