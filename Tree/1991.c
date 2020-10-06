@@ -23,14 +23,17 @@ void nojam1991(){
 		if(mid=='\n'||mid==' ') scanf("%c",&mid);
 		midNode=t_find(root,mid);
 		scanf("%c",&left);
-		if(left==' ') scanf("%c",&left);
+		if(left==' '||left=='\n') scanf("%c",&left);
 		scanf("%c",&right);
-		if(right==' ') scanf("%c",&right);
+		if(right==' '||right=='\n') scanf("%c",&right);
 		t_push(midNode, left, right);
 	}
 	t_pre(root);
+	printf("\n");
 	t_in(root);
+	printf("\n");
 	t_ppost(root);
+	printf("\n");
 }
 
 int main(){
@@ -68,12 +71,12 @@ Node* t_find(Node* tracker,char mid){
 		node-> Rnode = NULL;
 		root=node;
 		return root;
-	}else{
+	}else if(tracker!=NULL){
 		if(tracker->data==mid){
 			return tracker;
 		}else{
 			Node *tmp = t_find(tracker->Lnode,mid);
-			if(tmp==NULL){
+			if(tmp!=NULL){
 				return tmp;
 			}
 			return t_find(tracker->Rnode,mid);
@@ -87,7 +90,6 @@ void t_in(Node* tracker){
 		printf("%c",tracker->data);
 		t_in(tracker->Rnode);
 	}
-	printf("\n");
 	return;
 }
 void t_pre(Node* tracker){
@@ -96,7 +98,6 @@ void t_pre(Node* tracker){
 		t_pre(tracker->Lnode);
 		t_pre(tracker->Rnode);
 	}
-	printf("\n");
 	return;
 }
 void t_ppost(Node *tracker){
@@ -105,6 +106,5 @@ void t_ppost(Node *tracker){
 		t_ppost(tracker->Rnode);
 		printf("%c",tracker->data);
 	}
-	printf("\n");
 	return;
 }
