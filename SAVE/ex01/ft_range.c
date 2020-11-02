@@ -1,13 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parkjoungwan <whddhs6645@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 01:26:25 by parkjoung         #+#    #+#             */
-/*   Updated: 2020/11/02 01:32:13 by parkjoung        ###   ########.fr       */
+/*   Created: 2020/11/01 19:52:20 by parkjoung         #+#    #+#             */
+/*   Updated: 2020/11/02 10:54:02 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 
+int	*ft_range(int min, int max)
+{
+	int	*result;
+	int	size;
+	int	index;
+
+	if (max <= min)
+		return (NULL);
+	index = 0;
+	size = max - min;
+	if (!(result = (int *)malloc(sizeof(int) * size)))
+		return (NULL);
+	while (index < size)
+	{
+		result[index++] = min++;
+	}
+	return (result);
+}
