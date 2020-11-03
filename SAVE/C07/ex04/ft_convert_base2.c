@@ -6,7 +6,7 @@
 /*   By: joupark <joupark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 11:28:32 by joupark           #+#    #+#             */
-/*   Updated: 2020/11/02 23:00:31 by joupark          ###   ########.fr       */
+/*   Updated: 2020/11/03 21:46:34 by parkjoung        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,16 @@ int		str_len(char *str)
 	return (index);
 }
 
-int		num_len(int nbr)
+int		num_len(int nbr, int base_number)
 {
 	int		result;
 
 	result = 0;
 	if (nbr == -2147483648)
-		return (11);
+	{
+		result++;
+		nbr = nbr / base_number; 
+	}
 	if (nbr < 0)
 	{
 		result++;
@@ -43,9 +46,9 @@ int		num_len(int nbr)
 	}
 	if (nbr == 0)
 		return (1);
-	while (nbr > 0)
+	while (nbr)
 	{
-		nbr /= 10;
+		nbr /= base_number;
 		result++;
 	}
 	return (result);
@@ -81,7 +84,7 @@ void	ft_print_nbr(int nbr, char *base, int base_number, char *result)
 {
 	int nbr_len;
 
-	nbr_len = num_len(nbr);
+	nbr_len = num_len(nbr, base_number);
 	if (nbr == -2147483648)
 	{
 		ft_print_nbr(nbr / base_number, base, base_number, result - 1);
@@ -104,13 +107,13 @@ char	*ft_putnbr_base(int nbr, char *base)
 	int		nbr_len;
 	char	*result;
 
-	nbr_len = num_len(nbr);
-	printf("%d\n", nbr_len);
-	result = (char *)malloc(sizeof(char) * nbr_len + 1);
+	base_number = str_len(base);
+	nbr_len = num_len(nbr, base_number);
+	if(!(result = (char *)malloc(sizeof(char) * nbr_len + 1)))
+		return (0);
 	if (nbr < 0)
 		result[0] = '-';
 	result[nbr_len] = '\0';
-	base_number = str_len(base);
 	if (ft_possible_base(base, base_number))
 		return (NULL);
 	ft_print_nbr(nbr, base, base_number, &result[nbr_len - 1]);

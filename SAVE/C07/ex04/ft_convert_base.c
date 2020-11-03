@@ -6,7 +6,7 @@
 /*   By: parkjoungwan <whddhs6645@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 01:26:25 by parkjoung         #+#    #+#             */
-/*   Updated: 2020/11/02 22:46:26 by joupark          ###   ########.fr       */
+/*   Updated: 2020/11/03 21:09:48 by parkjoung        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	char	*result;
 
 	num = ft_atoi_base(nbr, base_from);
-	printf("%d\n", num);
 	result = ft_putnbr_base(num, base_to);
 	return (result);
 }
