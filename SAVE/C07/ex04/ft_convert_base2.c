@@ -6,7 +6,7 @@
 /*   By: joupark <joupark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 11:28:32 by joupark           #+#    #+#             */
-/*   Updated: 2020/11/03 21:46:34 by parkjoung        ###   ########.fr       */
+/*   Updated: 2020/11/03 21:48:33 by parkjoung        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		num_len(int nbr, int base_number)
 	if (nbr == -2147483648)
 	{
 		result++;
-		nbr = nbr / base_number; 
+		nbr = nbr / base_number;
 	}
 	if (nbr < 0)
 	{
@@ -109,7 +109,7 @@ char	*ft_putnbr_base(int nbr, char *base)
 
 	base_number = str_len(base);
 	nbr_len = num_len(nbr, base_number);
-	if(!(result = (char *)malloc(sizeof(char) * nbr_len + 1)))
+	if (!(result = (char *)malloc(sizeof(char) * nbr_len + 1)))
 		return (0);
 	if (nbr < 0)
 		result[0] = '-';
